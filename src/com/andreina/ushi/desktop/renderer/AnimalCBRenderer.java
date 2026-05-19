@@ -16,17 +16,19 @@ public class AnimalCBRenderer extends DefaultListCellRenderer {
     @Override
     public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected,
             boolean cellHasFocus) {
-        super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+        super.getListCellRendererComponent(list, displayText(value), index, isSelected, cellHasFocus);
+        return this;
+    }
+
+    private String displayText(Object value) {
         AnimalDTO animal = (AnimalDTO) value;
         if (animal != null) {
             String label = animal.getNumRegistro();
             if (label == null || label.isEmpty()) {
                 label = animal.getId() != null ? animal.getId().toString() : "";
             }
-            setText(label);
-        } else {
-            setText("Seleccionar");
+            return label;
         }
-        return this;
+        return "Seleccionar";
     }
 }

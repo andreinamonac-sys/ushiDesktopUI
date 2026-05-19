@@ -6,11 +6,25 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="lib/jcalendar-1.4.jar"/>
-	<classpathentry kind="lib" path="lib/jfreechart-1.5.5.jar"/>
-	<classpathentry kind="lib" path="lib/nuvola-icons.jar"/>
 	<classpathentry kind="lib" path="lib/ushi-middleware.jar"/>
 	<classpathentry kind="lib" path="lib/mysql/mysql-connector-j-9.5.0.jar"/>
 	<classpathentry kind="lib" path="lib/log4j2/log4j-api-2.12.4.jar"/>
+	<classpathentry kind="lib" path="lib/Calendar/jcalendar-1.4.jar"/>
+	<classpathentry kind="lib" path="lib/comons-email/activation-1.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/comons-email/commons-email-1.5.jar"/>
+	<classpathentry kind="lib" path="lib/comons-email/javax.mail-1.6.2.jar"/>
+	<classpathentry kind="lib" path="lib/comons-email/mailapi-1.6.2.jar"/>
+	<classpathentry kind="lib" path="lib/comons-email/smtp-1.6.2.jar"/>
+	<classpathentry kind="lib" path="lib/jfreechart/jfreechart-1.5.5.jar"/>
+	<classpathentry kind="lib" path="lib/log4j2/log4j-core-2.12.4.jar"/>
+	<classpathentry kind="lib" path="lib/lookandfeld/flatlaf-3.7.1.jar"/>
+	<classpathentry kind="lib" path="lib/nuvola/Iconos.jar"/>
+	<classpathentry kind="lib" path="lib/nuvola/Iconos (2).jar"/>
+	<classpathentry kind="lib" path="lib/nuvola/iconos2.jar"/>
+	<classpathentry kind="lib" path="lib/nuvola/icons.jar"/>
+	<classpathentry kind="lib" path="lib/nuvola/nuvola-icons.jar"/>
+	<classpathentry kind="lib" path="lib/swinnX/swingx-all-1.6.4.jar.jar"/>
+	<classpathentry kind="lib" path="lib/swinnX/swingx-common-1.6.4.jar.jar"/>
+	<classpathentry kind="lib" path="lib/swinnX/swingx-graphics-1.6.4.jar.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

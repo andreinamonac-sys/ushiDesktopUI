@@ -15,13 +15,15 @@ public class RolCBRenderer extends DefaultListCellRenderer {
 	@Override
 	public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected,
 			boolean cellHasFocus) {
-		super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+		super.getListCellRendererComponent(list, displayText(value), index, isSelected, cellHasFocus);
+		return this;
+	}
+
+	private String displayText(Object value) {
 		Rol rol = (Rol) value;
 		if (rol != null) {
-			this.setText(rol.getNombre());
-		} else {
-			this.setText("Seleccionar");
+			return rol.getNombre();
 		}
-		return this;
+		return "Seleccionar";
 	}
 }

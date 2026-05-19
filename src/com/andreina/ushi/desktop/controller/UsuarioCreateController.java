@@ -5,25 +5,28 @@ import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
-import com.andreina.ushi.dao.UsuarioDAO;
+import com.andreina.ushi.desktop.MainWindow;
 import com.andreina.ushi.desktop.model.UsuarioFormModel;
 import com.andreina.ushi.desktop.renderer.RolCBRenderer;
 import com.andreina.ushi.desktop.view.UsuarioCreateView;
+import com.andreina.ushi.desktop.view.UsuarioSearchView;
 import com.andreina.ushi.model.Rol;
 import com.andreina.ushi.model.UsuarioDTO;
 import com.andreina.ushi.service.RolService;
+import com.andreina.ushi.service.UsuarioService;
 import com.andreina.ushi.service.impl.RolServiceImpl;
+import com.andreina.ushi.service.impl.UsuarioServiceImpl;
 
 public class UsuarioCreateController {
 
 	private final UsuarioCreateView view;
 	private final RolService rolService;
-	private final UsuarioDAO usuarioDAO;
+	private final UsuarioService usuarioService;
 
 	public UsuarioCreateController(UsuarioCreateView view) {
 		this.view = view;
 		this.rolService = new RolServiceImpl();
-		this.usuarioDAO = new UsuarioDAO();
+		this.usuarioService = new UsuarioServiceImpl();
 		init();
 	}
 
@@ -42,11 +45,16 @@ public class UsuarioCreateController {
 		placeholder.setNombre("Seleccionar");
 		model.addElement(placeholder);
 
-		List<Rol> roles = rolService.findAll();
-		if (roles != null) {
-			for (Rol r : roles) {
-				model.addElement(r);
+		try {
+			List<Rol> roles = rolService.findAll();
+			if (roles != null) {
+				for (Rol r : roles) {
+					model.addElement(r);
+				}
 			}
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(view, "No se pudieron cargar los roles: " + e.getMessage(), "Error",
+					JOptionPane.ERROR_MESSAGE);
 		}
 		view.getRolCombo().setModel(model);
 	}
@@ -67,23 +75,28 @@ public class UsuarioCreateController {
 			return;
 		}
 
-		UsuarioDTO usuario = form.toUsuarioDTO("pass123");
-		UsuarioDTO creado = usuarioDAO.create(usuario);
-		if (creado != null && creado.getId() != null) {
-			JOptionPane.showMessageDialog(view, "Usuario creado con ID: " + creado.getId(), "OK",
-					JOptionPane.INFORMATION_MESSAGE);
-			limpiar();
-		} else {
-			JOptionPane.showMessageDialog(view, "No se pudo crear el usuario.", "Error",
+		try {
+			UsuarioDTO usuario = form.toUsuarioDTO("pass123");
+			Long id = usuarioService.registrar(usuario);
+			if (id != null) {
+				JOptionPane.showMessageDialog(view, "Usuario creado con ID: " + id, "OK",
+						JOptionPane.INFORMATION_MESSAGE);
+				limpiar();
+				volverAUsuarios();
+			} else {
+				JOptionPane.showMessageDialog(view, "No se pudo crear el usuario.", "Error",
+						JOptionPane.ERROR_MESSAGE);
+			}
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(view, "No se pudo crear el usuario: " + e.getMessage(), "Error",
 					JOptionPane.ERROR_MESSAGE);
+			limpiar();
 		}
 	}
 
 	private void cancelar() {
 		limpiar();
-		if (view.getFrame() != null) {
-			view.getFrame().dispose();
-		}
+		volverAUsuarios();
 	}
 
 	private void limpiar() {
@@ -94,6 +107,12 @@ public class UsuarioCreateController {
 		view.getTelefonoTF().setText("");
 		view.getEmailTF().setText("");
 		view.getRolCombo().setSelectedIndex(0);
+	}
+
+	private void volverAUsuarios() {
+		UsuarioSearchView searchView = new UsuarioSearchView();
+		new UsuarioSearchController(searchView);
+		MainWindow.getInstance().setView(searchView);
 	}
 
 	private String trimToNull(String value) {
