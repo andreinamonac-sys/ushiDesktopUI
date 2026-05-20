@@ -13,6 +13,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
@@ -42,6 +43,9 @@ public class UsuarioCreateView extends AbstractView {
 
     private JLabel emailLabel;
     private JTextField emailTF;
+
+    private JLabel passwordLabel;
+    private JPasswordField passwordPF;
 
     private JButton btnNuevoUsuario;
     private JButton btnCancelar;
@@ -82,6 +86,17 @@ public class UsuarioCreateView extends AbstractView {
         emailLabel = new JLabel("Email");
         emailTF = new JTextField(20);
 
+        passwordLabel = new JLabel("Contrasena");
+        passwordPF = new JPasswordField(20);
+
+        dniNieTF.putClientProperty("JTextField.placeholderText", "Ej. 12345678A");
+        nombreTF.putClientProperty("JTextField.placeholderText", "Ej. Maria");
+        apellido1TF.putClientProperty("JTextField.placeholderText", "Ej. Rodriguez");
+        apellido2TF.putClientProperty("JTextField.placeholderText", "Ej. Lopez");
+        telefonoTF.putClientProperty("JTextField.placeholderText", "Ej. 600123456");
+        emailTF.putClientProperty("JTextField.placeholderText", "usuario@ushi.com");
+        passwordPF.putClientProperty("JTextField.placeholderText", "Contrasena inicial");
+
         btnNuevoUsuario = new JButton("Nuevo usuario");
         btnCancelar = new JButton("Cancelar");
 
@@ -89,7 +104,7 @@ public class UsuarioCreateView extends AbstractView {
         formPanel.setBackground(UshiColors.C_BLANCO_SUAVE);
         formPanel.setBorder(BorderFactory.createTitledBorder(
                 BorderFactory.createLineBorder(UshiColors.C_GRIS_VERDOSO_OSCURO), "Alta usuario"));
-        formPanel.setPreferredSize(new Dimension(460, 470));
+        formPanel.setPreferredSize(new Dimension(460, 530));
         JPanel centerPanel = new JPanel(new GridBagLayout());
         centerPanel.setOpaque(false);
         centerPanel.add(formPanel);
@@ -114,13 +129,14 @@ public class UsuarioCreateView extends AbstractView {
         addField(formPanel, dniNieLabel, dniNieTF, 0, 4);
         addField(formPanel, telefonoLabel, telefonoTF, 1, 4);
         addWideField(formPanel, emailLabel, emailTF, 0, 6);
+        addWideField(formPanel, passwordLabel, passwordPF, 0, 8);
 
         JPanel buttonsPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 16, 0));
         buttonsPanel.setOpaque(false);
         buttonsPanel.add(btnNuevoUsuario);
         buttonsPanel.add(btnCancelar);
         gbc.gridx = 0;
-        gbc.gridy = 8;
+        gbc.gridy = 10;
         gbc.gridwidth = 3;
         gbc.insets = new Insets(26, 8, 8, 8);
         formPanel.add(buttonsPanel, gbc);
@@ -160,6 +176,10 @@ public class UsuarioCreateView extends AbstractView {
 
     public JTextField getEmailTF() {
         return emailTF;
+    }
+
+    public JPasswordField getPasswordPF() {
+        return passwordPF;
     }
 
     public JButton getBtnNuevoUsuario() {

@@ -1,0 +1,380 @@
+2026-05-19 01:27:30.297 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:230) - Criteria: [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@1dcbf118=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-19 01:29:05.896 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:230) - Criteria: [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@393883df=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-19 01:29:08.829 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:230) - Criteria: [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@63c8e73e=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-19 13:26:32.903 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:213) - Encontradas 10 granjas
+2026-05-19 13:27:11.343 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:213) - Encontradas 10 granjas
+2026-05-19 13:27:40.717 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:230) - Criteria: [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@722b72b4=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-19 13:27:40.736 [AWT-EventQueue-0] ERROR com.andreina.ushi.dao.AnimalDAO (:286) - Criteria: [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@722b72b4=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!], Message: Unsupported conversion from DATE to java.lang.Long
+java.sql.SQLDataException: Unsupported conversion from DATE to java.lang.Long
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:106) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:89) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:81) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:55) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:65) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:88) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getObject(ResultSetImpl.java:1412) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getLong(ResultSetImpl.java:882) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.andreina.ushi.dao.AnimalDAO.loadNext(AnimalDAO.java:306) ~[ushi-middleware.jar:?]
+	at com.andreina.ushi.dao.AnimalDAO.findByCriteria(AnimalDAO.java:276) ~[ushi-middleware.jar:?]
+	at com.andreina.ushi.service.impl.AnimalServiceImpl.findByCriteria(AnimalServiceImpl.java:116) ~[ushi-middleware.jar:?]
+	at com.andreina.ushi.desktop.controller.AnimalSearchController.buscar(AnimalSearchController.java:32) ~[bin/:?]
+	at com.andreina.ushi.desktop.controller.AnimalSearchController.actionPerformed(AnimalSearchController.java:26) ~[bin/:?]
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1972) ~[?:?]
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2314) ~[?:?]
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:407) ~[?:?]
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:262) ~[?:?]
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:279) ~[?:?]
+	at java.awt.Component.processMouseEvent(Component.java:6621) ~[?:?]
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3398) ~[?:?]
+	at java.awt.Component.processEvent(Component.java:6386) ~[?:?]
+	at java.awt.Container.processEvent(Container.java:2266) ~[?:?]
+	at java.awt.Component.dispatchEventImpl(Component.java:4996) ~[?:?]
+	at java.awt.Container.dispatchEventImpl(Container.java:2324) ~[?:?]
+	at java.awt.Component.dispatchEvent(Component.java:4828) ~[?:?]
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4948) ~[?:?]
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4575) ~[?:?]
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4516) ~[?:?]
+	at java.awt.Container.dispatchEventImpl(Container.java:2310) ~[?:?]
+	at java.awt.Window.dispatchEventImpl(Window.java:2780) ~[?:?]
+	at java.awt.Component.dispatchEvent(Component.java:4828) ~[?:?]
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:775) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:720) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:714) ~[?:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:400) [?:?]
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87) ~[?:?]
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:98) ~[?:?]
+	at java.awt.EventQueue$5.run(EventQueue.java:747) ~[?:?]
+	at java.awt.EventQueue$5.run(EventQueue.java:745) ~[?:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:400) [?:?]
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87) [?:?]
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:744) [?:?]
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101) [?:?]
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:90) [?:?]
+Caused by: com.mysql.cj.exceptions.DataConversionException: Unsupported conversion from DATE to java.lang.Long
+	at com.mysql.cj.result.DefaultValueFactory.unsupported(DefaultValueFactory.java:61) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.result.DefaultValueFactory.createFromDate(DefaultValueFactory.java:76) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.protocol.a.MysqlTextValueDecoder.decodeDate(MysqlTextValueDecoder.java:71) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.protocol.result.AbstractResultsetRow.decodeAndCreateReturnValue(AbstractResultsetRow.java:84) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.protocol.result.AbstractResultsetRow.getValueFromBytes(AbstractResultsetRow.java:235) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.protocol.a.result.ByteArrayRow.getValue(ByteArrayRow.java:82) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getObject(ResultSetImpl.java:1315) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	... 41 more
+2026-05-19 13:27:40.749 [AWT-EventQueue-0] ERROR com.andreina.ushi.service.impl.AnimalServiceImpl (:118) - Buscando [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@722b72b4=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]: Unsupported conversion from DATE to java.lang.Long
+java.sql.SQLDataException: Unsupported conversion from DATE to java.lang.Long
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:106) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:89) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:81) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:55) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:65) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:88) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getObject(ResultSetImpl.java:1412) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getLong(ResultSetImpl.java:882) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.andreina.ushi.dao.AnimalDAO.loadNext(AnimalDAO.java:306) ~[ushi-middleware.jar:?]
+	at com.andreina.ushi.dao.AnimalDAO.findByCriteria(AnimalDAO.java:276) ~[ushi-middleware.jar:?]
+	at com.andreina.ushi.service.impl.AnimalServiceImpl.findByCriteria(AnimalServiceImpl.java:116) ~[ushi-middleware.jar:?]
+	at com.andreina.ushi.desktop.controller.AnimalSearchController.buscar(AnimalSearchController.java:32) ~[bin/:?]
+	at com.andreina.ushi.desktop.controller.AnimalSearchController.actionPerformed(AnimalSearchController.java:26) ~[bin/:?]
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1972) ~[?:?]
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2314) ~[?:?]
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:407) ~[?:?]
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:262) ~[?:?]
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:279) ~[?:?]
+	at java.awt.Component.processMouseEvent(Component.java:6621) ~[?:?]
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3398) ~[?:?]
+	at java.awt.Component.processEvent(Component.java:6386) ~[?:?]
+	at java.awt.Container.processEvent(Container.java:2266) ~[?:?]
+	at java.awt.Component.dispatchEventImpl(Component.java:4996) ~[?:?]
+	at java.awt.Container.dispatchEventImpl(Container.java:2324) ~[?:?]
+	at java.awt.Component.dispatchEvent(Component.java:4828) ~[?:?]
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4948) ~[?:?]
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4575) ~[?:?]
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4516) ~[?:?]
+	at java.awt.Container.dispatchEventImpl(Container.java:2310) ~[?:?]
+	at java.awt.Window.dispatchEventImpl(Window.java:2780) ~[?:?]
+	at java.awt.Component.dispatchEvent(Component.java:4828) ~[?:?]
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:775) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:720) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:714) ~[?:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:400) [?:?]
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87) ~[?:?]
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:98) ~[?:?]
+	at java.awt.EventQueue$5.run(EventQueue.java:747) ~[?:?]
+	at java.awt.EventQueue$5.run(EventQueue.java:745) ~[?:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:400) [?:?]
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87) [?:?]
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:744) [?:?]
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101) [?:?]
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:90) [?:?]
+Caused by: com.mysql.cj.exceptions.DataConversionException: Unsupported conversion from DATE to java.lang.Long
+	at com.mysql.cj.result.DefaultValueFactory.unsupported(DefaultValueFactory.java:61) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.result.DefaultValueFactory.createFromDate(DefaultValueFactory.java:76) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.protocol.a.MysqlTextValueDecoder.decodeDate(MysqlTextValueDecoder.java:71) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.protocol.result.AbstractResultsetRow.decodeAndCreateReturnValue(AbstractResultsetRow.java:84) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.protocol.result.AbstractResultsetRow.getValueFromBytes(AbstractResultsetRow.java:235) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.protocol.a.result.ByteArrayRow.getValue(ByteArrayRow.java:82) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getObject(ResultSetImpl.java:1315) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	... 41 more
+2026-05-19 13:54:31.533 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:213) - Encontradas 10 granjas
+2026-05-19 23:01:35.271 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:213) - Encontradas 10 granjas
+2026-05-19 23:04:09.636 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:230) - Criteria: [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@12c6998f=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-19 23:04:09.662 [AWT-EventQueue-0] ERROR com.andreina.ushi.dao.AnimalDAO (:286) - Criteria: [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@12c6998f=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!], Message: Unsupported conversion from DATE to java.lang.Long
+java.sql.SQLDataException: Unsupported conversion from DATE to java.lang.Long
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:106) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:89) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:81) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:55) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:65) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:88) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getObject(ResultSetImpl.java:1412) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getLong(ResultSetImpl.java:882) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.andreina.ushi.dao.AnimalDAO.loadNext(AnimalDAO.java:306) ~[ushi-middleware.jar:?]
+	at com.andreina.ushi.dao.AnimalDAO.findByCriteria(AnimalDAO.java:276) ~[ushi-middleware.jar:?]
+	at com.andreina.ushi.service.impl.AnimalServiceImpl.findByCriteria(AnimalServiceImpl.java:116) ~[ushi-middleware.jar:?]
+	at com.andreina.ushi.desktop.controller.AnimalSearchController.buscar(AnimalSearchController.java:32) ~[bin/:?]
+	at com.andreina.ushi.desktop.controller.AnimalSearchController.actionPerformed(AnimalSearchController.java:26) ~[bin/:?]
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1972) ~[?:?]
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2314) ~[?:?]
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:407) ~[?:?]
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:262) ~[?:?]
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:279) ~[?:?]
+	at java.awt.Component.processMouseEvent(Component.java:6621) ~[?:?]
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3398) ~[?:?]
+	at java.awt.Component.processEvent(Component.java:6386) ~[?:?]
+	at java.awt.Container.processEvent(Container.java:2266) ~[?:?]
+	at java.awt.Component.dispatchEventImpl(Component.java:4996) ~[?:?]
+	at java.awt.Container.dispatchEventImpl(Container.java:2324) ~[?:?]
+	at java.awt.Component.dispatchEvent(Component.java:4828) ~[?:?]
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4948) ~[?:?]
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4575) ~[?:?]
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4516) ~[?:?]
+	at java.awt.Container.dispatchEventImpl(Container.java:2310) ~[?:?]
+	at java.awt.Window.dispatchEventImpl(Window.java:2780) ~[?:?]
+	at java.awt.Component.dispatchEvent(Component.java:4828) ~[?:?]
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:775) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:720) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:714) ~[?:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:400) [?:?]
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87) ~[?:?]
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:98) ~[?:?]
+	at java.awt.EventQueue$5.run(EventQueue.java:747) ~[?:?]
+	at java.awt.EventQueue$5.run(EventQueue.java:745) ~[?:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:400) [?:?]
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87) [?:?]
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:744) [?:?]
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101) [?:?]
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:90) [?:?]
+Caused by: com.mysql.cj.exceptions.DataConversionException: Unsupported conversion from DATE to java.lang.Long
+	at com.mysql.cj.result.DefaultValueFactory.unsupported(DefaultValueFactory.java:61) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.result.DefaultValueFactory.createFromDate(DefaultValueFactory.java:76) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.protocol.a.MysqlTextValueDecoder.decodeDate(MysqlTextValueDecoder.java:71) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.protocol.result.AbstractResultsetRow.decodeAndCreateReturnValue(AbstractResultsetRow.java:84) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.protocol.result.AbstractResultsetRow.getValueFromBytes(AbstractResultsetRow.java:235) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.protocol.a.result.ByteArrayRow.getValue(ByteArrayRow.java:82) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getObject(ResultSetImpl.java:1315) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	... 41 more
+2026-05-19 23:04:09.699 [AWT-EventQueue-0] ERROR com.andreina.ushi.service.impl.AnimalServiceImpl (:118) - Buscando [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@12c6998f=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]: Unsupported conversion from DATE to java.lang.Long
+java.sql.SQLDataException: Unsupported conversion from DATE to java.lang.Long
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:106) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:89) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:81) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:55) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:65) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:88) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getObject(ResultSetImpl.java:1412) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getLong(ResultSetImpl.java:882) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.andreina.ushi.dao.AnimalDAO.loadNext(AnimalDAO.java:306) ~[ushi-middleware.jar:?]
+	at com.andreina.ushi.dao.AnimalDAO.findByCriteria(AnimalDAO.java:276) ~[ushi-middleware.jar:?]
+	at com.andreina.ushi.service.impl.AnimalServiceImpl.findByCriteria(AnimalServiceImpl.java:116) ~[ushi-middleware.jar:?]
+	at com.andreina.ushi.desktop.controller.AnimalSearchController.buscar(AnimalSearchController.java:32) ~[bin/:?]
+	at com.andreina.ushi.desktop.controller.AnimalSearchController.actionPerformed(AnimalSearchController.java:26) ~[bin/:?]
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:1972) ~[?:?]
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2314) ~[?:?]
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:407) ~[?:?]
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:262) ~[?:?]
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:279) ~[?:?]
+	at java.awt.Component.processMouseEvent(Component.java:6621) ~[?:?]
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3398) ~[?:?]
+	at java.awt.Component.processEvent(Component.java:6386) ~[?:?]
+	at java.awt.Container.processEvent(Container.java:2266) ~[?:?]
+	at java.awt.Component.dispatchEventImpl(Component.java:4996) ~[?:?]
+	at java.awt.Container.dispatchEventImpl(Container.java:2324) ~[?:?]
+	at java.awt.Component.dispatchEvent(Component.java:4828) ~[?:?]
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4948) ~[?:?]
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4575) ~[?:?]
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4516) ~[?:?]
+	at java.awt.Container.dispatchEventImpl(Container.java:2310) ~[?:?]
+	at java.awt.Window.dispatchEventImpl(Window.java:2780) ~[?:?]
+	at java.awt.Component.dispatchEvent(Component.java:4828) ~[?:?]
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:775) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:720) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:714) ~[?:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:400) [?:?]
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87) ~[?:?]
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:98) ~[?:?]
+	at java.awt.EventQueue$5.run(EventQueue.java:747) ~[?:?]
+	at java.awt.EventQueue$5.run(EventQueue.java:745) ~[?:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:400) [?:?]
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:87) [?:?]
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:744) [?:?]
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101) [?:?]
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:90) [?:?]
+Caused by: com.mysql.cj.exceptions.DataConversionException: Unsupported conversion from DATE to java.lang.Long
+	at com.mysql.cj.result.DefaultValueFactory.unsupported(DefaultValueFactory.java:61) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.result.DefaultValueFactory.createFromDate(DefaultValueFactory.java:76) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.protocol.a.MysqlTextValueDecoder.decodeDate(MysqlTextValueDecoder.java:71) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.protocol.result.AbstractResultsetRow.decodeAndCreateReturnValue(AbstractResultsetRow.java:84) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.protocol.result.AbstractResultsetRow.getValueFromBytes(AbstractResultsetRow.java:235) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.protocol.a.result.ByteArrayRow.getValue(ByteArrayRow.java:82) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.result.ResultSetImpl.getObject(ResultSetImpl.java:1315) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	... 41 more
+2026-05-19 23:17:32.090 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:213) - Encontradas 10 granjas
+2026-05-19 23:18:41.623 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:230) - Criteria: [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@4aeef712=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-19 23:18:55.056 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:166) - Buscando animal con id: 1
+2026-05-19 23:18:55.061 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:174) - Animal encontrado: [!!!com.andreina.ushi.model.AnimalDTO@3e478683=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-19 23:19:27.372 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:166) - Buscando animal con id: 1
+2026-05-19 23:19:27.383 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:174) - Animal encontrado: [!!!com.andreina.ushi.model.AnimalDTO@3d29a104=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-19 23:20:42.757 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:104) - Actualizando animal con id: 1
+2026-05-19 23:20:42.773 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:115) - Animal con id: 1 actualizado, filas afectadas: 1
+2026-05-19 23:20:42.795 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:230) - Criteria: [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@4bd09066=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-19 23:20:48.917 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:230) - Criteria: [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@53ed37a2=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-19 23:24:36.608 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:213) - Encontradas 10 granjas
+2026-05-19 23:25:42.908 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:230) - Criteria: [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@2e53710b=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-19 23:25:44.728 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:166) - Buscando animal con id: 40
+2026-05-19 23:25:44.736 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:174) - Animal encontrado: [!!!com.andreina.ushi.model.AnimalDTO@23946ed9=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-19 23:31:59.775 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:213) - Encontradas 10 granjas
+2026-05-19 23:32:05.874 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:213) - Encontradas 10 granjas
+2026-05-19 23:32:06.857 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:213) - Encontradas 10 granjas
+2026-05-19 23:32:07.540 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:213) - Encontradas 10 granjas
+2026-05-19 23:32:29.910 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:153) - Buscando granja con nif: d23456789
+2026-05-19 23:33:42.031 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:213) - Encontradas 10 granjas
+2026-05-19 23:34:59.093 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:213) - Encontradas 10 granjas
+2026-05-19 23:37:08.842 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:230) - Criteria: [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@3b1ef0d0=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-19 23:37:12.177 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:166) - Buscando animal con id: 2
+2026-05-19 23:37:12.182 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:174) - Animal encontrado: [!!!com.andreina.ushi.model.AnimalDTO@6d6ffd5c=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-19 23:37:24.059 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:153) - Buscando granja con nif: B12345678
+2026-05-19 23:37:24.074 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:104) - Actualizando animal con id: 2
+2026-05-19 23:37:24.086 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:115) - Animal con id: 2 actualizado, filas afectadas: 1
+2026-05-19 23:37:24.100 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:230) - Criteria: [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@5397b7bc=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-19 23:48:17.774 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:214) - Encontradas 10 granjas
+2026-05-19 23:56:38.824 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:230) - Criteria: [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@212c0bff=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-19 23:56:40.298 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:230) - Criteria: [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@178ab557=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-19 23:56:43.029 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:230) - Criteria: [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@18f8d9f5=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-19 23:56:47.234 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:230) - Criteria: [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@3748063c=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-19 23:56:59.574 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:230) - Criteria: [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@6a30be67=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-19 23:57:28.870 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:214) - Encontradas 10 granjas
+2026-05-19 23:57:37.935 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:230) - Criteria: [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@5481459c=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-19 23:57:39.977 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:166) - Buscando animal con id: 1
+2026-05-19 23:57:39.983 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:174) - Animal encontrado: [!!!com.andreina.ushi.model.AnimalDTO@6ba66b4c=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-20 00:00:56.903 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:214) - Encontradas 10 granjas
+2026-05-20 00:01:25.814 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:230) - Criteria: [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@702f97e0=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-20 00:02:35.041 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:214) - Encontradas 10 granjas
+2026-05-20 00:13:03.388 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:214) - Encontradas 10 granjas
+2026-05-20 00:13:24.005 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:230) - Criteria: [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@52eadff2=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-20 00:13:25.767 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:166) - Buscando animal con id: 1
+2026-05-20 00:13:25.772 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:174) - Animal encontrado: [!!!com.andreina.ushi.model.AnimalDTO@1b5832c9=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-20 00:13:25.793 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.EventoDAO (:213) - Buscando eventos con animal_id: 1
+2026-05-20 00:26:31.788 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:214) - Encontradas 10 granjas
+2026-05-20 00:37:45.975 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:214) - Encontradas 10 granjas
+2026-05-20 00:38:27.765 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:214) - Encontradas 10 granjas
+2026-05-20 00:47:14.929 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:216) - Encontradas 10 granjas
+2026-05-20 00:47:30.792 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:216) - Encontradas 10 granjas
+2026-05-20 00:52:41.590 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:216) - Encontradas 10 granjas
+2026-05-20 00:52:46.589 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:216) - Encontradas 10 granjas
+2026-05-20 00:52:51.555 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:216) - Encontradas 10 granjas
+2026-05-20 00:58:32.866 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:216) - Encontradas 10 granjas
+2026-05-20 00:58:35.695 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:216) - Encontradas 10 granjas
+2026-05-20 01:02:06.580 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:216) - Encontradas 10 granjas
+2026-05-20 01:02:09.673 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:216) - Encontradas 10 granjas
+2026-05-20 01:02:42.154 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:216) - Encontradas 10 granjas
+2026-05-20 02:06:38.575 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:216) - Encontradas 10 granjas
+2026-05-20 02:06:55.181 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:216) - Encontradas 10 granjas
+2026-05-20 02:07:02.921 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:230) - Criteria: [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@33ee5f3c=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-20 02:07:08.387 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:216) - Encontradas 10 granjas
+2026-05-20 02:07:14.945 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:230) - Criteria: [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@379b3fe5=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-20 02:07:16.763 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:166) - Buscando animal con id: 1
+2026-05-20 02:07:16.767 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:174) - Animal encontrado: [!!!com.andreina.ushi.model.AnimalDTO@45070724=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-20 15:05:17.133 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:182) - Buscando eventos con animal_id: 9
+2026-05-20 15:10:50.552 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:182) - Buscando eventos con animal_id: 9
+2026-05-20 15:16:08.571 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:182) - Buscando eventos con animal_id: 9
+2026-05-20 15:19:58.743 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:182) - Buscando eventos con animal_id: 5
+2026-05-20 16:23:47.923 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:216) - Encontradas 10 granjas
+2026-05-20 16:24:08.868 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:216) - Encontradas 10 granjas
+2026-05-20 16:24:36.627 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:230) - Criteria: [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@28b6474c=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-20 16:25:01.374 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:166) - Buscando animal con id: 37
+2026-05-20 16:25:01.380 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:174) - Animal encontrado: [!!!com.andreina.ushi.model.AnimalDTO@5d6df205=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-20 16:25:01.410 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.EventoDAO (:213) - Buscando eventos con animal_id: 37
+2026-05-20 17:11:45.571 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:216) - Encontradas 10 granjas
+2026-05-20 17:21:36.187 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:230) - Criteria: [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@6dc0e5fe=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-20 17:24:10.799 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:230) - Criteria: [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@337c35e=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-20 17:26:04.056 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:230) - Criteria: [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@6788e5ae=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-20 17:26:07.664 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:166) - Buscando animal con id: 1
+2026-05-20 17:26:07.668 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:174) - Animal encontrado: [!!!com.andreina.ushi.model.AnimalDTO@7babb124=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-20 17:26:07.683 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.EventoDAO (:213) - Buscando eventos con animal_id: 1
+2026-05-20 17:28:08.887 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:230) - Criteria: [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@5df09c83=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-20 17:28:10.312 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:166) - Buscando animal con id: 33
+2026-05-20 17:28:10.315 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:174) - Animal encontrado: [!!!com.andreina.ushi.model.AnimalDTO@1aaeffdf=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-20 17:28:10.330 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.EventoDAO (:213) - Buscando eventos con animal_id: 33
+2026-05-20 17:30:44.671 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.EventoDAO (:158) - Buscando evento con id: 64
+2026-05-20 18:59:27.197 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:216) - Encontradas 10 granjas
+2026-05-20 19:01:07.743 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:216) - Encontradas 10 granjas
+2026-05-20 19:08:48.089 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:230) - Criteria: [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@7975e477=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-20 20:00:09.036 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:216) - Encontradas 10 granjas
+2026-05-20 20:05:12.415 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:230) - Criteria: [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@375ad3b4=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-20 20:05:13.646 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:166) - Buscando animal con id: 1
+2026-05-20 20:05:13.651 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:174) - Animal encontrado: [!!!com.andreina.ushi.model.AnimalDTO@56501c0a=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-20 20:05:13.669 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.EventoDAO (:213) - Buscando eventos con animal_id: 1
+2026-05-20 22:23:08.740 [main] INFO  Log4jCheck (:6) - log4j configurado
+2026-05-20 22:25:00.566 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:182) - Buscando eventos con animal_id: 9
+2026-05-20 22:29:24.488 [main] INFO  com.andreina.ushi.dao.GranjaDAO (:186) - Buscando granjas asignadas al usuario_id: 5
+2026-05-20 22:29:24.526 [main] INFO  com.andreina.ushi.dao.GranjaDAO (:186) - Buscando granjas asignadas al usuario_id: 19
+2026-05-20 22:31:48.391 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:133) - Buscando granja con id: 3
+2026-05-20 22:32:02.594 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:230) - Criteria: [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@5bba2079=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-20 22:32:40.033 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:230) - Criteria: [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@423d1ae4=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-20 22:33:26.058 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:220) - Encontradas 10 granjas
+2026-05-20 22:34:18.201 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:230) - Criteria: [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@4a0dc849=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-20 22:34:20.285 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:166) - Buscando animal con id: 39
+2026-05-20 22:34:20.289 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:174) - Animal encontrado: [!!!com.andreina.ushi.model.AnimalDTO@2fd5d234=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-20 22:34:20.304 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.EventoDAO (:213) - Buscando eventos con animal_id: 39
+2026-05-20 22:51:51.439 [main] ERROR com.andreina.ushi.dao.AlertaDAO (:41) - Error cargando alertas: Unknown column 'a.leida' in 'field list'
+java.sql.SQLSyntaxErrorException: Unknown column 'a.leida' in 'field list'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeQuery(ClientPreparedStatement.java:1056) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.andreina.ushi.dao.AlertaDAO.findUltimas(AlertaDAO.java:34) [ushi-middleware.jar:?]
+	at com.andreina.ushi.service.impl.AlertaServiceImpl.findUltimas(AlertaServiceImpl.java:28) [ushi-middleware.jar:?]
+	at AlertCheck.main(AlertCheck.java:7) [ushi-alert-check/:?]
+2026-05-20 22:51:51.456 [main] ERROR com.andreina.ushi.service.impl.AlertaServiceImpl (:30) - Buscando alertas: Unknown column 'a.leida' in 'field list'
+java.sql.SQLSyntaxErrorException: Unknown column 'a.leida' in 'field list'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:988) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeQuery(ClientPreparedStatement.java:1056) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.andreina.ushi.dao.AlertaDAO.findUltimas(AlertaDAO.java:34) ~[ushi-middleware.jar:?]
+	at com.andreina.ushi.service.impl.AlertaServiceImpl.findUltimas(AlertaServiceImpl.java:28) [ushi-middleware.jar:?]
+	at AlertCheck.main(AlertCheck.java:7) [ushi-alert-check/:?]
+2026-05-20 23:18:30.052 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:220) - Encontradas 10 granjas
+2026-05-20 23:33:12.707 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:220) - Encontradas 10 granjas
+2026-05-20 23:40:31.756 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:220) - Encontradas 10 granjas
+2026-05-20 23:40:42.500 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:230) - Criteria: [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@b4bc41f=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-20 23:41:35.562 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.GranjaDAO (:156) - Buscando granja con nif: K90123456
+2026-05-20 23:41:35.609 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:199) - Buscando animal con numRegistro: AN-038-2024
+2026-05-20 23:41:35.609 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:207) - Animal encontrado: [!!!com.andreina.ushi.model.AnimalDTO@3198ef5b=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]
+2026-05-20 23:41:35.641 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:71) - Animal creado con id: 41
+2026-05-20 23:41:35.662 [AWT-EventQueue-0] INFO  com.andreina.ushi.dao.AnimalDAO (:230) - Criteria: [!!!com.andreina.ushi.dao.criteria.AnimalCriteria@3d045ab2=>java.lang.NoClassDefFoundError:org/apache/commons/lang3/builder/ToStringBuilder!!!]

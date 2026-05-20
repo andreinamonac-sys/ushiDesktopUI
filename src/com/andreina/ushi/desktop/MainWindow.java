@@ -29,28 +29,26 @@ import javax.swing.UIManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.andreina.ushi.desktop.controller.AnimalSearchController;
-import com.andreina.ushi.desktop.controller.EventoSearchController;
-import com.andreina.ushi.desktop.controller.GranjaSearchController;
-import com.andreina.ushi.desktop.controller.MonitorizacionController;
-import com.andreina.ushi.desktop.controller.UsuarioCreateController;
-import com.andreina.ushi.desktop.controller.UsuarioSearchController;
+import com.andreina.ushi.desktop.controller.NavigationService;
+import com.andreina.ushi.desktop.controller.OpenAnimalSearchController;
+import com.andreina.ushi.desktop.controller.OpenDashboardController;
+import com.andreina.ushi.desktop.controller.OpenEstadisticasController;
+import com.andreina.ushi.desktop.controller.OpenEventoSearchController;
+import com.andreina.ushi.desktop.controller.OpenGranjaSearchController;
+import com.andreina.ushi.desktop.controller.OpenMonitorizacionController;
+import com.andreina.ushi.desktop.controller.OpenUsuarioSearchController;
+import com.andreina.ushi.desktop.renderer.TagConnectionIcon;
 import com.andreina.ushi.desktop.renderer.UserProfileIcon;
 import com.andreina.ushi.desktop.view.AbstractView;
-import com.andreina.ushi.desktop.view.AnimalSearchView;
-import com.andreina.ushi.desktop.view.DashboardView;
-import com.andreina.ushi.desktop.view.EstadisticasView;
-import com.andreina.ushi.desktop.view.EventoSearchView;
-import com.andreina.ushi.desktop.view.GranjaSearchView;
 import com.andreina.ushi.desktop.view.LoginView;
-import com.andreina.ushi.desktop.view.MonitorizacionView;
 import com.andreina.ushi.desktop.view.UshiColors;
-import com.andreina.ushi.desktop.view.UsuarioCreateView;
-import com.andreina.ushi.desktop.view.UsuarioSearchView;
 import com.andreina.ushi.model.GranjaDTO;
+import com.andreina.ushi.model.Tag;
 import com.andreina.ushi.model.UsuarioLoginDTO;
 import com.andreina.ushi.service.GranjaService;
+import com.andreina.ushi.service.TagService;
 import com.andreina.ushi.service.impl.GranjaServiceImpl;
+import com.andreina.ushi.service.impl.TagServiceImpl;
 import com.formdev.flatlaf.FlatLightLaf;
 
 
@@ -69,12 +67,15 @@ public class MainWindow {
     private JButton monitorizacionButton;
     private JButton estadisticasButton;
     private JButton usuariosMenuButton;
+    private JButton tagConnectionButton;
     private JButton usuarioButton;
     private JComboBox<ComboItem<GranjaDTO>> granjaComboBox;
     private UsuarioLoginDTO currentUser;
     private String currentRole;
     private Long selectedGranjaId;
+    private final NavigationService navigationService;
     private final GranjaService granjaService;
+    private final TagService tagService;
 
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
@@ -90,7 +91,9 @@ public class MainWindow {
     }
 
     private MainWindow() {
+        this.navigationService = new NavigationService(this);
         this.granjaService = new GranjaServiceImpl();
+        this.tagService = new TagServiceImpl();
         initialize();
         postinitialize();
     }
@@ -200,8 +203,17 @@ public class MainWindow {
         rightHeaderLayout.setAlignment(FlowLayout.RIGHT);
         northPanel.add(rightHeaderPanel, BorderLayout.EAST);
 
-        usuarioButton = new JButton(new UserProfileIcon(28));
-        usuarioButton.setPreferredSize(new Dimension(42, 38));
+        tagConnectionButton = new JButton(new TagConnectionIcon(34));
+        tagConnectionButton.setPreferredSize(new Dimension(48, 44));
+        tagConnectionButton.setToolTipText("Tags con problemas de conexion");
+        tagConnectionButton.setFocusable(false);
+        tagConnectionButton.setBorderPainted(false);
+        tagConnectionButton.setContentAreaFilled(false);
+        tagConnectionButton.addActionListener(e -> showTagConnectionProblems());
+        rightHeaderPanel.add(tagConnectionButton);
+
+        usuarioButton = new JButton(new UserProfileIcon(38));
+        usuarioButton.setPreferredSize(new Dimension(52, 46));
         usuarioButton.setFocusable(false);
         usuarioButton.setBorderPainted(false);
         usuarioButton.setContentAreaFilled(false);
@@ -226,84 +238,14 @@ public class MainWindow {
     }
 
     private void postinitialize() {
-        inicioButton.addActionListener(e -> openDashboard());
-        animalButton.addActionListener(e -> openAnimalSearch());
-        eventoButton.addActionListener(e -> openEventos());
-        granjaButton.addActionListener(e -> openGranjas());
-        monitorizacionButton.addActionListener(e -> openMonitorizacion());
-        estadisticasButton.addActionListener(e -> openEstadisticas());
-        usuariosMenuButton.addActionListener(e -> openUsuarios());
+        inicioButton.addActionListener(new OpenDashboardController(navigationService));
+        animalButton.addActionListener(new OpenAnimalSearchController(navigationService));
+        eventoButton.addActionListener(new OpenEventoSearchController(navigationService));
+        granjaButton.addActionListener(new OpenGranjaSearchController(navigationService));
+        monitorizacionButton.addActionListener(new OpenMonitorizacionController(navigationService));
+        estadisticasButton.addActionListener(new OpenEstadisticasController(navigationService));
+        usuariosMenuButton.addActionListener(new OpenUsuarioSearchController(navigationService));
         applyRolePermissions();
-    }
-
-    private void openDashboard() {
-        DashboardView view = new DashboardView();
-        view.setSummary(displayUser(currentUser), displayRole(currentUser), permittedViewsLabel());
-        setView(view);
-    }
-
-    private void openAnimalSearch() {
-        if (!canOpenAnimals()) {
-            showAccessDenied();
-            return;
-        }
-        AnimalSearchView view = new AnimalSearchView();
-        new AnimalSearchController(view);
-        setView(view);
-    }
-
-    private void openEventos() {
-        if (!canOpenEvents()) {
-            showAccessDenied();
-            return;
-        }
-        EventoSearchView view = new EventoSearchView();
-        new EventoSearchController(view);
-        setView(view);
-    }
-
-    private void openGranjas() {
-        if (!canOpenFarms()) {
-            showAccessDenied();
-            return;
-        }
-        GranjaSearchView view = new GranjaSearchView();
-        new GranjaSearchController(view);
-        setView(view);
-    }
-
-    private void openMonitorizacion() {
-        if (!canOpenMonitoring()) {
-            showAccessDenied();
-            return;
-        }
-        MonitorizacionView view = new MonitorizacionView();
-        new MonitorizacionController(view);
-        setView(view);
-    }
-
-    private void openEstadisticas() {
-        if (!canOpenStatistics()) {
-            showAccessDenied();
-            return;
-        }
-        setView(new EstadisticasView());
-    }
-
-    private void openUsuarios() {
-        if (!canOpenUsers()) {
-            showAccessDenied();
-            return;
-        }
-        UsuarioSearchView view = new UsuarioSearchView();
-        new UsuarioSearchController(view);
-        setView(view);
-    }
-
-    private void openUsuarioCreate() {
-        UsuarioCreateView view = new UsuarioCreateView();
-        new UsuarioCreateController(view);
-        setView(view);
     }
 
     public void setView(AbstractView view) {
@@ -329,20 +271,20 @@ public class MainWindow {
         }
         if (user == null) {
             usuarioButton.setText("");
-            usuarioButton.setIcon(new UserProfileIcon(28));
+            usuarioButton.setIcon(new UserProfileIcon(38));
             usuarioButton.setToolTipText("Sin sesion");
             selectedGranjaId = null;
-            loadFarmCombo(new ArrayList<GranjaDTO>());
+            loadFarmCombo(new ArrayList<GranjaDTO>(), false);
             applyRolePermissions();
             return;
         }
 
         usuarioButton.setText("");
-        usuarioButton.setIcon(new UserProfileIcon(28));
+        usuarioButton.setIcon(new UserProfileIcon(38));
         usuarioButton.setToolTipText(user.getEmail() + " (" + displayRole(user) + ")");
-        loadFarmCombo(resolveAvailableFarms(user));
+        loadFarmCombo(resolveAvailableFarms(user), RolePermissions.isAdministrator(displayRole(user)));
         applyRolePermissions();
-        openDashboard();
+        navigationService.openDashboard();
     }
 
     public void setCurrentRole(String role) {
@@ -360,6 +302,18 @@ public class MainWindow {
 
     public String getCurrentRoleName() {
         return RolePermissions.roleOf(currentUser, currentRole);
+    }
+
+    public String getCurrentUserLabel() {
+        return displayUser(currentUser);
+    }
+
+    public String getCurrentRoleLabel() {
+        return displayRole(currentUser);
+    }
+
+    public String getPermittedViewsLabel() {
+        return permittedViewsLabel();
     }
 
     public void showWindow() {
@@ -398,6 +352,29 @@ public class MainWindow {
         dialog.setSize(430, 430);
         dialog.setLocationRelativeTo(frame);
         dialog.setVisible(true);
+    }
+
+    private void showTagConnectionProblems() {
+        try {
+            List<Tag> tags = tagService.findConIncidencias();
+            if (tags == null || tags.isEmpty()) {
+                JOptionPane.showMessageDialog(frame, "No hay tags con problemas de conexion.", "Tags",
+                        JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            StringBuilder message = new StringBuilder("<html><b>Tags con problemas de conexion</b><br><br>");
+            for (Tag tag : tags) {
+                message.append("Tag ").append(tag.getNumero() == null ? tag.getId() : tag.getNumero())
+                        .append(": ").append(tag.getIncidencias()).append("<br>");
+            }
+            message.append("</html>");
+            JOptionPane.showMessageDialog(frame, new JLabel(message.toString()), "Tags",
+                    JOptionPane.WARNING_MESSAGE);
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+            JOptionPane.showMessageDialog(frame, "No se pudieron cargar los tags con problemas de conexion.",
+                    "Tags", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     private JPanel createManageUserPanel() {
@@ -479,9 +456,15 @@ public class MainWindow {
             return new ArrayList<GranjaDTO>();
         }
         try {
-            List<GranjaDTO> granjas = isAdmin(user)
-                    ? granjaService.findAll()
-                    : granjaService.findByEncargadoId(user.getId());
+            String role = RolePermissions.roleOf(user, currentRole);
+            List<GranjaDTO> granjas;
+            if (RolePermissions.isAdministrator(role)) {
+                granjas = granjaService.findAll();
+            } else if (RolePermissions.isFarmScoped(role)) {
+                granjas = resolveUserFarm(user);
+            } else {
+                granjas = new ArrayList<GranjaDTO>();
+            }
             return granjas == null ? new ArrayList<GranjaDTO>() : granjas;
         } catch (Exception e) {
             logger.error(e.getMessage(), e);
@@ -491,9 +474,17 @@ public class MainWindow {
         }
     }
 
-    private boolean isAdmin(UsuarioLoginDTO user) {
-        return user != null && (Long.valueOf(1L).equals(user.getRolId())
-                || "ADMINISTRADOR".equalsIgnoreCase(displayRole(user)));
+    private List<GranjaDTO> resolveUserFarm(UsuarioLoginDTO user) throws Exception {
+        List<GranjaDTO> granjas = new ArrayList<GranjaDTO>();
+        if (user.getGranjaId() != null) {
+            GranjaDTO granja = granjaService.findById(user.getGranjaId());
+            if (granja != null) {
+                granjas.add(granja);
+            }
+            return granjas;
+        }
+        List<GranjaDTO> assigned = granjaService.findByEncargadoId(user.getId());
+        return assigned == null ? granjas : assigned;
     }
 
     private void applyRolePermissions() {
@@ -571,7 +562,7 @@ public class MainWindow {
         return currentRole == null ? "" : currentRole;
     }
 
-    private void loadFarmCombo(List<GranjaDTO> granjas) {
+    private void loadFarmCombo(List<GranjaDTO> granjas, boolean selectable) {
         DefaultComboBoxModel<ComboItem<GranjaDTO>> model = new DefaultComboBoxModel<ComboItem<GranjaDTO>>();
         if (granjas != null) {
             for (GranjaDTO granja : granjas) {
@@ -579,7 +570,8 @@ public class MainWindow {
             }
         }
         granjaComboBox.setModel(model);
-        granjaComboBox.setEnabled(model.getSize() > 0);
+        granjaComboBox.setVisible(selectable);
+        granjaComboBox.setEnabled(selectable && model.getSize() > 0);
         if (model.getSize() > 0) {
             granjaComboBox.setSelectedIndex(0);
             ComboItem<GranjaDTO> firstItem = model.getElementAt(0);
@@ -588,9 +580,11 @@ public class MainWindow {
             granjaComboBox.setSelectedIndex(-1);
             selectedGranjaId = null;
         }
+        granjaComboBox.getParent().revalidate();
+        granjaComboBox.getParent().repaint();
     }
 
-    private void showAccessDenied() {
+    public void showAccessDenied() {
         JOptionPane.showMessageDialog(frame, "Tu rol no tiene permiso para abrir esta vista.", "Permisos",
                 JOptionPane.WARNING_MESSAGE);
     }
@@ -636,12 +630,4 @@ public class MainWindow {
         }
     }
 
-    private static class SimpleMessageView extends AbstractView {
-
-        SimpleMessageView(String name, String message) {
-            super(name);
-            setLayout(new BorderLayout());
-            add(new JLabel(message, JLabel.CENTER), BorderLayout.CENTER);
-        }
-    }
 }

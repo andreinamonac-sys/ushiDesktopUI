@@ -68,15 +68,21 @@ public class UsuarioCreateController {
 		form.setTelefono(trimToNull(view.getTelefonoTF().getText()));
 		form.setEmail(trimToNull(view.getEmailTF().getText()));
 		form.setRol((Rol) view.getRolCombo().getSelectedItem());
+		String password = trimToNull(new String(view.getPasswordPF().getPassword()));
 
 		if (form.getRol() == null || form.getRol().getId() == null) {
 			JOptionPane.showMessageDialog(view, "Selecciona un rol.", "Validacion",
 					JOptionPane.WARNING_MESSAGE);
 			return;
 		}
+		if (password == null) {
+			JOptionPane.showMessageDialog(view, "Introduce una contrasena inicial.", "Validacion",
+					JOptionPane.WARNING_MESSAGE);
+			return;
+		}
 
 		try {
-			UsuarioDTO usuario = form.toUsuarioDTO("pass123");
+			UsuarioDTO usuario = form.toUsuarioDTO(password);
 			Long id = usuarioService.registrar(usuario);
 			if (id != null) {
 				JOptionPane.showMessageDialog(view, "Usuario creado con ID: " + id, "OK",
@@ -106,6 +112,7 @@ public class UsuarioCreateController {
 		view.getApellido2TF().setText("");
 		view.getTelefonoTF().setText("");
 		view.getEmailTF().setText("");
+		view.getPasswordPF().setText("");
 		view.getRolCombo().setSelectedIndex(0);
 	}
 

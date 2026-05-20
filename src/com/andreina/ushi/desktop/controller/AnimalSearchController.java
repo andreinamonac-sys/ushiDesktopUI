@@ -41,8 +41,10 @@ public class AnimalSearchController extends AbstractController implements Animal
         this.eventoService = new EventoServiceImpl();
         this.parametroService = new ParametroServiceImpl();
         this.view.getBtnBuscar().addActionListener(this);
+        this.view.getBtnNuevo().addActionListener(this);
         this.view.setAnimalActionsHandler(this);
         this.view.setAnimalActionsVisible(canWriteAnimals());
+        this.view.setNewButtonVisible(canWriteAnimals());
         this.view.getResultadosTable().addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -53,7 +55,33 @@ public class AnimalSearchController extends AbstractController implements Animal
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == view.getBtnNuevo()) {
+            crearAnimal();
+            return;
+        }
         buscar();
+    }
+
+    private void crearAnimal() {
+        if (!canWriteAnimals()) {
+            view.showError("Tu rol solo permite consultar animales.");
+            return;
+        }
+        AnimalView form = new AnimalView();
+        int option = JOptionPane.showConfirmDialog(view, form, "Nuevo animal", JOptionPane.OK_CANCEL_OPTION,
+                JOptionPane.PLAIN_MESSAGE);
+        if (option != JOptionPane.OK_OPTION) {
+            return;
+        }
+        try {
+            AnimalDTO nuevo = form.updateAnimal(new AnimalDTO());
+            updateGranjaIdFromNif(nuevo, form.getGranjaNif());
+            updateMadreInternaId(nuevo, form.getMadreInterna());
+            animalService.create(nuevo);
+            buscar();
+        } catch (Exception ex) {
+            view.showError("No se pudo crear el animal: " + ex.getMessage());
+        }
     }
 
     private void buscar() {
@@ -91,7 +119,7 @@ public class AnimalSearchController extends AbstractController implements Animal
             MainWindow.getInstance().setView(new AnimalView(
                     fullAnimal == null ? animal : fullAnimal,
                     eventoService.findByAnimalId(animal.getId()),
-                    parametroService.findByCriteria(parametroCriteria, 0, 100)));
+                    parametroService.findByCriteria(parametroCriteria, 1, 1000)));
         } catch (Exception ex) {
             view.showError("No se pudo abrir la ficha del animal: " + ex.getMessage());
         }
@@ -117,6 +145,7 @@ public class AnimalSearchController extends AbstractController implements Animal
             }
             AnimalDTO updated = form.updateAnimal(fullAnimal == null ? animal : fullAnimal);
             updateGranjaIdFromNif(updated, form.getGranjaNif());
+            updateMadreInternaId(updated, form.getMadreInterna());
             animalService.update(updated);
             buscar();
         } catch (Exception e) {
@@ -134,6 +163,35 @@ public class AnimalSearchController extends AbstractController implements Animal
         }
         animal.setGranjaId(granja.getId());
         animal.setGranjaNif(granja.getNif());
+    }
+
+    private void updateMadreInternaId(AnimalDTO animal, String madreInterna) throws Exception {
+        if (madreInterna == null || madreInterna.trim().isEmpty()) {
+            animal.setMadreInternaId(null);
+            animal.setNumRegistroMadreInterna(null);
+            return;
+        }
+        String value = madreInterna.trim();
+        if (isLong(value)) {
+            animal.setMadreInternaId(Long.valueOf(value));
+            animal.setNumRegistroMadreInterna(null);
+            return;
+        }
+        AnimalDTO madre = animalService.findByNumRegistro(value);
+        if (madre == null || madre.getId() == null) {
+            throw new IllegalArgumentException("No existe ninguna madre interna con numero de registro " + value);
+        }
+        animal.setMadreInternaId(madre.getId());
+        animal.setNumRegistroMadreInterna(madre.getNumRegistro());
+    }
+
+    private boolean isLong(String value) {
+        try {
+            Long.valueOf(value);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 
     @Override
@@ -166,7 +224,7 @@ public class AnimalSearchController extends AbstractController implements Animal
         }
         Long selectedGranjaId = MainWindow.getInstance().getSelectedGranjaId();
         if (selectedGranjaId == null) {
-            view.showError("Selecciona una granja para consultar los animales de tu rol.");
+            view.showError("Tu usuario no tiene una granja asignada.");
             return false;
         }
         criteria.setGranjaId(selectedGranjaId);

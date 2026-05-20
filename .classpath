@@ -6,6 +6,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="resources"/>
 	<classpathentry kind="lib" path="lib/ushi-middleware.jar"/>
 	<classpathentry kind="lib" path="lib/mysql/mysql-connector-j-9.5.0.jar"/>
 	<classpathentry kind="lib" path="lib/log4j2/log4j-api-2.12.4.jar"/>
